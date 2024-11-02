@@ -1,6 +1,6 @@
 {
-    "name": "@saashq/gantt",
-    "version": "0.9.0",
+    "name": "saashq-gantt",
+    "version": "0.8.1",
     "description": "A simple, modern, interactive gantt library for the web",
     "main": "src/index.js",
     "type": "module",
@@ -17,19 +17,15 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/saashqdev/gantt.git"
+        "url": "git+https://github.com/saashqdev/gantt.git"
     },
     "files": [
         "src",
         "dist",
         "README.md"
     ],
-    "publishConfig": {
-      "access": "public"
-    },
     "exports": {
         ".": {
-            "import": "./dist/saashq-gantt.es.js",
             "require": "./dist/saashq-gantt.umd.js"
         }
     },
@@ -41,7 +37,7 @@
         "interactive gantt",
         "project management"
     ],
-    "author": "Saashq",
+    "author": "Faris Ansari",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/saashqdev/gantt/issues"

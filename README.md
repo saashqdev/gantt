@@ -3,7 +3,7 @@
 ### Install
 
 ```
-npm install @saashq/gantt
+npm install saashq-gantt
 ```
 
 ### Usage
@@ -15,6 +15,11 @@ Include it in your HTML:
 <link rel="stylesheet" href="saashq-gantt.css">
 ```
 
+Or from the CDN:
+```
+<script src="https://cdn.jsdelivr.net/npm/saashq-gantt/dist/saashq-gantt.umd.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/saashq-gantt/dist/saashq-gantt.css">
+```
 And start hacking:
 
 ```js
@@ -48,7 +53,7 @@ var gantt = new Gantt('#gantt', tasks, {
     view_mode: 'Day',
     date_format: 'YYYY-MM-DD',
     language: 'en', // or 'es', 'it', 'ru', 'ptBr', 'fr', 'tr', 'zh', 'de', 'hu'
-    custom_popup_html: null,
+    popup: null,
 });
 ```
 
@@ -58,4 +63,5 @@ You can add `dark` class to the container element to apply dark theme.
 <div class="gantt-target dark"></div>
 ```
 
-## License: MIT
+License: MIT
+

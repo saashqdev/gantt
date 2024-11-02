@@ -516,7 +516,7 @@ export default class Gantt {
         const { left, y } = this.$header.getBoundingClientRect();
 
         // Check if the button is scrolled out of the container vertically
-        console.log('heyy');
+
         if (
             buttonRect.top < containerRect.top ||
             buttonRect.bottom > containerRect.bottom
@@ -540,7 +540,9 @@ export default class Gantt {
             'px';
 
         // Update the left value on page resize
-        this.$today_button.style.left = `${containerRect.left + 20}px`;
+        if (this.$today_button) {
+            this.$today_button.style.left = `${containerRect.left + 20}px`;
+        }
     }
 
     make_grid_ticks() {
@@ -677,10 +679,13 @@ export default class Gantt {
                 x += this.options.column_width;
             }
         }
+
+        return { x }
     }
 
     make_grid_highlights() {
         if (this.options.highlight_weekend) this.highlightWeekends();
+
         // highlight today's | week's | month's | year's
         if (
             this.view_is(VIEW_MODE.DAY) ||
@@ -692,7 +697,7 @@ export default class Gantt {
             const { x: left, date } = this.computeGridHighlightDimensions(
                 this.options.view_mode,
             );
-            if (!this.dates.find((d) => d.getTime() == date.getTime())) return;
+            if (!date || !this.dates.find((d) => d.getTime() == date.getTime())) return;
             const top = this.options.header_height + this.options.padding / 2;
             const height =
                 (this.options.bar_height + this.options.padding) *
@@ -1292,7 +1297,7 @@ export default class Gantt {
 
     trigger_event(event, args) {
         if (this.options['on_' + event]) {
-            this.options['on_' + event].apply(null, args);
+            this.options['on_' + event].apply(this, args)
         }
     }
 

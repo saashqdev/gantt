@@ -23,8 +23,8 @@
                 background-color: #252525;
             }
         </style>
-        <link rel="stylesheet" href="dist/style.css" />
-        <script src="dist/saashq-gantt.umd.cjs"></script>
+        <link rel="stylesheet" href="dist/saashq-gantt.css" />
+        <script src="dist/saashq-gantt.umd.js"></script>
     </head>
     <body>
         <div class="container">
@@ -34,8 +34,6 @@
             <div class="gantt-target"></div>
         </div>
         <script type="module">
-            // import Gantt from "./dist/saashq-gantt.js";
-
             let tasks = [
                 {
                     start: '2024-04-01',
@@ -105,22 +103,10 @@
             // ];
 
             let gantt_chart = new Gantt('.gantt-target', tasks, {
-                on_click: (task) => {
+                on_click (task) {
                     console.log('Click', task);
                 },
-                // on_double_click: (task) => {
-                //   console.log("Double Click", task);
-                // },
-                // on_date_change: (task, start, end) => {
-                //   console.log("Date change", task, start, end);
-                // },
-                // on_progress_change: (task, progress) => {
-                //   console.log("Progress Change", task, progress);
-                // },
-                // on_view_change: (mode) => {
-                //   console.log("View Change", mode);
-                // },
-                // on_hover: (task, x, y) => {
+                // on_hover (task, x, y) {
                 //   console.log("Hover", x, y);
                 // },
                 view_mode: 'Day',

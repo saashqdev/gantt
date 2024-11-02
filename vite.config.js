@@ -9,11 +9,10 @@ export default defineConfig({
             fileName: 'saashq-gantt',
         },
         rollupOptions: {
-            external: ['vue'],
             output: {
-                globals: {
-                    vue: 'Vue'
-                }
+                format: 'cjs',
+                assetFileNames: 'saashq-gantt[extname]',
+                entryFileNames: 'saashq-gantt.[format].js'
             },
         },
     },
